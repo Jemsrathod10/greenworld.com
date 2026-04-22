@@ -1,0 +1,31 @@
+{
+  "name": "plant-selling-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node config/seedDatabase.js",
+    "smart-seed": "node config/intelligentSeed.js",
+    "preview": "node -e \"require('./config/intelligentSeed').previewChanges()\"",
+    "backup": "node -e \"require('./config/intelligentSeed').backupDatabase()\"",
+    "clear": "node clearDatabase.js",
+    "seed:categories": "node config/seedCategories.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^7.0.12",
+    "razorpay": "^2.9.6",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

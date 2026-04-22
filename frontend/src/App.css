@@ -1,0 +1,460 @@
+/* 1. IMPORT RETRO FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Quicksand:wght@500;700&display=swap');
+
+/* 2. DEFINE THEME VARIABLES */
+:root {
+  /* Colors */
+  --primary-color: #d35400;       /* Burnt Orange (Buttons/Actions) */
+  --secondary-color: #5d6d36;     /* Olive Green (Navbar/Footer) */
+  --accent-color: #eec643;        /* Mustard Yellow (Highlights/Borders) */
+  --bg-color: #fbf8e8;            /* Creamy Beige (Page Background) */
+  --text-color: #3e2723;          /* Dark Retro Brown (Text) */
+  --card-bg: #ffffff;             /* White (Cards) */
+  
+  /* Shapes */
+  --border-radius: 20px;          /* Soft square corners */
+  --btn-radius: 50px;             /* Pill-shaped buttons */
+}
+
+/* 3. GLOBAL RESETS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif; /* Body Text = Rounded Sans */
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* Retro Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fraunces', serif; /* Headings = Chunky Serif */
+  font-weight: 700;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: 80px;
+}
+
+/* 4. NAVBAR STYLES */
+.navbar {
+  background: var(--secondary-color); /* Olive Green */
+  padding: 0.5rem 0; /* Reduced padding */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(62, 39, 35, 0.15);
+  border-bottom: 5px solid var(--accent-color); /* Yellow border bottom */
+  min-height: 75px; /* Fixed minimum height */
+  max-height: 75px; /* Fixed maximum height */
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-color); /* Yellow Logo */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-family: 'Fraunces', serif;
+  letter-spacing: -1px;
+  height: 100%; /* Use full navbar height */
+  padding: 0.3rem 0; /* Vertical padding */
+}
+
+/* Logo image specific styling */
+.nav-logo img {
+  height: 150px; /* Controlled height */
+  width: auto;
+  max-height: 500px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+  transition: all 0.3s ease;
+}
+
+.nav-logo img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.3));
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center; /* Better vertical alignment */
+}
+
+.nav-item a {
+  color: #fbf8e8; /* Cream text */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: var(--btn-radius);
+  display: inline-block; /* Better click area */
+}
+
+.nav-item a:hover {
+  color: var(--accent-color);
+  background-color: rgba(255,255,255,0.1);
+}
+
+.nav-auth {
+  display: flex;
+  gap: 1rem;
+  align-items: center; /* Better vertical alignment */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    min-height: 70px;
+    max-height: 70px;
+  }
+  
+  .nav-logo img {
+    height: 45px;
+    max-height: 45px;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
+  
+  .nav-item a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 5. BUTTON STYLES (PILL SHAPE) */
+.btn {
+  padding: 0.75rem 1.8rem;
+  border: none;
+  border-radius: var(--btn-radius); /* Pill Shape */
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(211, 84, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #b34500; /* Darker Orange */
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--bg-color);
+  border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+/* 6. HERO SECTION */
+.hero-section {
+  /* Updated gradient to use retro overlay */
+  background: linear-gradient(rgba(93, 109, 54, 0.85), rgba(62, 39, 35, 0.7)), url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3') center/cover;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  color: var(--bg-color);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color); /* Yellow Heading */
+  text-shadow: 3px 3px 0px rgba(62, 39, 35, 0.8); /* Retro block shadow */
+}
+
+/* 7. PRODUCT CARDS (RETRO STYLE) */
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem; /* More space for transparency */
+  margin-top: 2rem;
+}
+
+.product-card {
+  background: transparent; /* No white box */
+  border-radius: var(--border-radius);
+  /* No shadow on the card itself, focusing on the image */
+  box-shadow: none; 
+  overflow: visible;
+  transition: transform 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-image {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%; /* CIRCLE IMAGE */
+  border: 6px solid var(--accent-color); /* Yellow Ring */
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(62, 39, 35, 0.15);
+  margin-bottom: 1rem;
+}
+
+.product-info {
+  padding: 1rem;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-family: 'Fraunces', serif;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* 8. FORMS */
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 8px 8px 0px rgba(93, 109, 54, 0.2); /* Retro Block Shadow */
+  border: 2px solid var(--secondary-color);
+}
+
+.form-group label {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius); /* Soft corners on inputs */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: #fafafa;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: #fff;
+}
+
+/* 9. ADMIN & TABLES */
+.admin-header {
+  background: var(--secondary-color);
+  border-bottom: 4px solid var(--accent-color);
+  border-radius: var(--border-radius);
+}
+
+.stat-number {
+  color: var(--primary-color);
+}
+
+.product-table th {
+  background-color: #eee;
+  color: var(--text-color);
+  font-family: 'Fraunces', serif;
+}
+
+.btn-warning {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+.btn-danger {
+  background-color: #c0392b;
+}
+
+/* 10. FOOTER */
+.footer {
+  background-color: var(--secondary-color);
+  border-top: 5px solid var(--accent-color);
+  color: #fbf8e8;
+  padding: 3rem 0;
+}
+
+.footer-section h3 {
+  color: var(--accent-color);
+  font-family: 'Fraunces', serif;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(238, 198, 67, 0.3);
+  color: var(--accent-color);
+}
+
+/* 🍌 11. PAYMENT & EXTRAS */
+.payment-container {
+  background: white;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--accent-color);
+}
+
+.payment-summary {
+  background: #fbf8e8;
+  color: var(--text-color);
+  border: 1px dashed var(--secondary-color);
+}
+
+.pay-btn {
+  background: var(--primary-color);
+  border-radius: var(--btn-radius);
+}
+
+.pay-btn:hover {
+  background: #b34500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2.5rem; }
+  .product-image { width: 180px; height: 180px; }
+  .nav-menu { background-color: var(--secondary-color); }
+}
+
+/* ✅ 12. RETRO NOTIFICATION STYLES (ADDED) */
+.custom-toast-overlay {
+  position: fixed;
+  top: 80px; /* Below navbar */
+  right: 20px;
+  z-index: 9999;
+  animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.retro-toast {
+  background: #fffcf5; /* Cream background */
+  border: 2px solid var(--secondary-color);
+  border-left: 8px solid var(--secondary-color); /* Thick accent border */
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0px rgba(45, 90, 39, 0.15); /* Retro Hard Shadow */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 320px;
+  max-width: 450px;
+}
+
+.retro-toast.error {
+  border-color: #e74c3c;
+  border-left-color: #e74c3c;
+  box-shadow: 6px 6px 0px rgba(231, 76, 60, 0.15);
+}
+
+.toast-content h4 {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+
+.toast-content p {
+  margin: 4px 0 0 0;
+  font-family: 'Quicksand', sans-serif;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.retro-toast.error .toast-content h4 {
+  color: #c0392b;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* 🚀 ADDITIONAL RESPONSIVE FIXES (NEW ADDITION) */
+@media screen and (max-width: 1024px) {
+  .nav-container { padding: 0 1.5rem; }
+  .products-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+}
+
+@media screen and (max-width: 768px) {
+  main { padding-top: 100px; }
+  .navbar { min-height: auto; max-height: none; padding: 15px 0; }
+  .nav-container { flex-direction: column; gap: 15px; }
+  .nav-menu { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .admin-header { padding: 1.5rem !important; }
+  .stat-card { margin-bottom: 1rem; }
+  .table-container, table { display: block; overflow-x: auto; }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-content h1 { font-size: 2rem; }
+  .section-title { font-size: 2.2rem; }
+  .form-container { width: 95%; padding: 1.5rem; }
+  .btn { width: 100%; margin-bottom: 10px; }
+}
