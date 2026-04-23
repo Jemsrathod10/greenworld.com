@@ -23,7 +23,7 @@ const AdminDashboard = () => {
         throw new Error('No authentication token found. Please login again.');
       }
 
-      const res = await axios.get('http://localhost:5000/api/stats/dashboard', {
+      const res = await axios.get('https://greenworld-com.onrender.com/api/stats/dashboard', {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
