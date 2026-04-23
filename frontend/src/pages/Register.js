@@ -38,7 +38,7 @@ const Register = () => {
 
     try {
       // ✅ Dynamic IP logic added without changing existing logic
-      const API_URL = `http://${window.location.hostname}:5000`;
+      const API_URL = `https://greenworld-com.onrender.com`;
       const response = await axios.post(`${API_URL}/api/auth/register`, {
         name: formData.name,
         email: formData.email,

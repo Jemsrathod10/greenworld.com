@@ -42,7 +42,7 @@ export const CartProvider = ({ children }) => {
   const [toast, setToast] = useState(null);
 
   // ✅ DYNAMIC API URL: Use current hostname (IP) instead of localhost for mobile sync
-  const API_URL = `http://${window.location.hostname}:5000/api/cart`;
+  const API_URL = `https://greenworld-com.onrender.com/api/cart`;
 
   const getAuthConfig = () => {
     const token = localStorage.getItem('token');

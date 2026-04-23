@@ -36,7 +36,7 @@ import ManageContacts from './pages/admin/ManageContacts';
 
 import './App.css';
 
-const BASE_URL = `http://${window.location.hostname}:5000/api`;
+const BASE_URL = `https://greenworld-com.onrender.com/api`;
 axios.defaults.baseURL = BASE_URL;
 
 const originalFetch = window.fetch;
